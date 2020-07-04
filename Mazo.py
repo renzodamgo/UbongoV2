@@ -25,5 +25,3 @@ class Mazo:
             plantilla5 = np.array(
                 [[100, 100, 0, 0, 100], [100, 100, 0, 0, 100], [100, 100, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]])
             return plantilla5, valplantilla
-
-    

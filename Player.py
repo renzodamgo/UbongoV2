@@ -1,5 +1,5 @@
 import Algoritmo as al
-
+import random
 
 class Player:
     def __init__(self):
@@ -8,8 +8,11 @@ class Player:
 
         self.fichas = []
 
-    def mover(self, cant):
-        self.posY = self.posY + cant
+    def mover(self,dir):
+        if dir == "abajo":
+            self.posY += 1
+        if dir == "arriba":
+            self.posY -= 1
 
     def recolectarGemas(self, gemas):
         self.gemas.append(gemas)
@@ -25,6 +28,10 @@ class Human(Player):
 
 
 class Computer(Player):
+    def __init__(self):
+
+        super().__init__()
+        self.posY = random.randrange(0,6)
 
     def resolverPuzzle(self, piezas, plantilla):
         return al.resolverPuzzle(piezas, plantilla)

@@ -1,5 +1,7 @@
 import random as rand
 import numpy as np
+import Player
+import random
 
 
 class Controller:
@@ -8,9 +10,19 @@ class Controller:
         self.n_ronda = 0
         self.jugar = True
         self.temporizador = 30
+        self.Jugadores = [Player.Human(), Player.Computer()]
+        self.posC = 0
+        self.posJ = 0
+        self.posC = random.randrange(0, 6)
+
+    def mover(self, dir):
+        self.Jugadores[0].mover(dir)
 
     def play(self):
         pass
+
+    def elegir_pos(self, pos):
+        return self.posC
 
     def roll_dice(self):
         return rand.randrange(0, 5)
@@ -198,5 +210,3 @@ class Controller:
 
     def dibujar(self):
         pass
-
-

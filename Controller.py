@@ -9,6 +9,9 @@ class Controller:
         self.jugar = True
         self.temporizador = 30
 
+    def play(self):
+        pass
+
     def roll_dice(self):
         return rand.randrange(0, 5)
 
@@ -195,3 +198,5 @@ class Controller:
 
     def dibujar(self):
         pass
+
+

@@ -4,7 +4,6 @@ import Algoritmo as al
 class Player:
     def __init__(self):
         self.gemas = []
-        self.posX = 0
         self.posY = 0
 
         self.fichas = []
@@ -12,16 +11,14 @@ class Player:
     def mover(self, cant):
         self.posY = self.posY + cant
 
-    def recolectarGemas(self):
-        pass
+    def recolectarGemas(self, gemas):
+        self.gemas.append(gemas)
 
     def resolverPuzzle(self, piezas, plantilla):
-        print("a")
+        pass
 
 
 class Human(Player):
-    def hello(self):
-        print("hello")
 
     def resolverPuzzle(self, piezas, plantilla):
         pass
@@ -33,9 +30,3 @@ class Computer(Player):
         return al.resolverPuzzle(piezas, plantilla)
 
 
-if __name__ == "__main__":
-    a = Human()
-    b = Computer()
-    b.resolverPuzzle()
-    a.hello()
-    print(a.pos)

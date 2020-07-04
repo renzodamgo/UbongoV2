@@ -14,6 +14,9 @@ class Menu:
         self.x = 450
         self.y = 560
         self.election = 1
+        self.Fase_Menu = True
+        self.Fase_Tablero = False
+        self.Fase_Puzzle = False
 
     def dibujar(self):
         screen.blit(self.background, (0, 0))
@@ -55,5 +58,3 @@ while running:
                 menu.select()
     menu.dibujar()
     pygame.display.update()
-
-

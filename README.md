@@ -4,9 +4,9 @@ Trabajo final asignado por el Curso de
 Complejidad Algorítmica (CC-42).
 ## Integrantes
 
-- Renzo Damian Gomez (@renzodamgo)
-- Joaquin Aguirre Peralta 
-- Luis Enrique Guadalupe Carrilo
+- Renzo Damian Gomez ([@renzodamgo](https://github.com/renzodamgo))
+- Joaquin Aguirre Peralta ([@Xerathox](https://github.com/Xerathox))
+- Luis Enrique Guadalupe Carrilo ([@xuxoman123](https://github.com/xuxoman123))
 ## Objetivo
 
 Utilizar el algoritmo de Backtracking para
@@ -19,11 +19,11 @@ Utilizar el algoritmo de Backtracking para
 
 - Clonar el repositorio
 ```bash
-git clone https://github.com/renzodamgo/UbongoV2.git
+$ git clone https://github.com/renzodamgo/UbongoV2.git
 ```
 - Instalar repositorios Numpy y Pygame con PIP
 ```bash
-pip install numpy
-pip install pygame
+$ pip install numpy
+$ pip install pygame
 ```
 - Ejecutar main.py

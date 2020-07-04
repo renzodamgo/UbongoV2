@@ -1,6 +1,7 @@
 import pygame
 import Tablero
 import Controller
+import numpy as np
 
 screen = pygame.display.set_mode((1200, 1000))
 pygame.init()
@@ -31,8 +32,18 @@ class Menu:
         self.controlador = Controller.Controller()
         self.pc_img = pygame.image.load("resources/images/Pc.png")
         self.jugador_img = pygame.image.load("resources/images/Jugador.png")
+        self.puzzle_azul = pygame.image.load("resources/images/puzzle_azul.png")
+        self.puzzle_celeste = pygame.image.load("resources/images/puzzle_celeste.png")
+        self.puzzle_cian = pygame.image.load("resources/images/puzzle_cian.png")
+        self.puzzle_marron = pygame.image.load("resources/images/puzzle_marrón.png")
+        self.puzzle_naranja = pygame.image.load("resources/images/puzzle_naranja_claro.png")
+        self.puzzle_vacio = pygame.image.load("resources/images/espacio_blanco.png")
+        self.puzzle_negro = pygame.image.load("resources/images/espacio_vacio.png")
+        self.puzzles = [self.puzzle_azul, self.puzzle_celeste, self.puzzle_cian, self.puzzle_marron,
+                        self.puzzle_naranja, self.puzzle_vacio, self.puzzle_negro]
 
         self.posComputadora = 0
+        self.intentos = []
 
     def dibujar(self):
         if self.Fase_Menu:
@@ -40,7 +51,9 @@ class Menu:
             screen.blit(self.arrow, (self.x, self.y))
         if self.Fase_Puzzle:
             screen.blit(self.background_1, (0, 0))
-            screen.blit(self.plantilla_img,(100,100))
+            screen.blit(self.plantilla_img, (100, 100))
+
+            self.controlador.dibujar(screen, self.intentos, self.puzzles)
             # screen.blit(self.arrow, (self.x, self.y))
         if self.Fase_Tablero:
             screen.blit(self.background_1, (0, 0))
@@ -83,19 +96,31 @@ class Menu:
                 posY += 65
             # screen.blit(self.arrow, (self.x, self.y))
 
-            screen.blit(self.pc_img, ( 250,80 +self.controlador.Jugadores[1].posY * 60))
-            screen.blit(self.jugador_img, ( 200,80+self.controlador.Jugadores[0].posY *60))
+            screen.blit(self.pc_img, (250, 80 + self.controlador.Jugadores[1].posY * 60))
+            screen.blit(self.jugador_img, (200, 80 + self.controlador.Jugadores[0].posY * 60))
 
         # screen.blit(self.textsurface,(500,200))
-    def moverFicha(self,dir):
-        self.controlador.mover(dir)
 
+    def moverFicha(self, dir):
+        self.controlador.mover(dir)
 
     def cambiarfase(self):
         if self.Fase_Menu:
             self.Fase_Menu = False
             self.Fase_Tablero_ini = True
         elif self.Fase_Puzzle:
+
+            plantilla, valplantilla = self.controlador.Mazo.dar_cartilla()
+            #piezaa = np.array([[0, 1, 1], [1, 1, 0]])
+            #piezab = np.array([[1, 1], [1, 1]])
+            #piezac = np.array([[0, 0, 1], [1, 1, 1], [1, 0, 0]])
+            #piezas = [piezaa, piezab, piezac]
+            dice = self.controlador.roll_dice()
+            piezas = self.controlador.asignar_piezas(dice, valplantilla)
+            print(valplantilla, plantilla, piezas,dice)
+            self.intentos = self.controlador.Jugadores[1].resolverPuzzle(piezas,plantilla)
+
+            #print(self.intentos)
             self.Fase_Puzzle = False
             self.Fase_Tablero = True
         elif self.Fase_Tablero:

@@ -55,6 +55,7 @@ def probarPiezarec(x, y, piezas, plantilla, i, rotar, nrot):
         # print(sumaplantilla)
         if i < len(piezas) - 1:
             if probarPiezarec(0, 0, piezas, sumaplantilla, i + 1, False, 0):
+
                 # return probarPiezarec(0,0,piezas,sumaplantilla,i+1)
                 # else:
                 return True
@@ -90,7 +91,7 @@ def probarPiezarec(x, y, piezas, plantilla, i, rotar, nrot):
 
     return False
 
-
+'''
 plantilla = np.array([[0, 0, 0, 0], [0, 0, 100, 100], [0, 0, 100, 100], [0, 0, 0, 0], [0, 0, 0, 0], [100, 100, 100, 0]])
 plantilla_simple = np.array([[0, 0, 0, 0, 100], [100, 0, 0, 0, 100], [100, 0, 0, 0, 0], [100, 100, 0, 0, 100]])
 piezaSimple1 = np.array([[1, 1]])
@@ -121,7 +122,7 @@ pieza5 = np.array([[1, 0], [1, 0]])
 piezax = np.array([[1, 1], [1, 0]])
 piezay = np.array([[0, 1], [1, 1]])
 piezaz = np.array([[1], [1], [1]])
-
+'''
 
 # piezas = np.array([pieza,pieza3])
 # piezas = [pieza,pieza2,pieza3,pieza4]
@@ -135,4 +136,4 @@ def resolverPuzzle(piezas, plantilla):
 
 # piezas.shape[0]
 
-print("Cantidad de iteraciones: ", iteracion)
+#print("Cantidad de iteraciones: ", iteracion)

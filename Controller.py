@@ -11,7 +11,5 @@ class Controller:
     def roll_dice(self):
         return rand.randrange(0, 5)
 
-    def asignar_objetos(self,r_dado,valplantilla):
-
-
-    pass
+    def asignar_objetos(self, r_dado, valplantilla):
+        pass
